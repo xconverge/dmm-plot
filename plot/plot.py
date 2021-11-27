@@ -2,11 +2,19 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import csv
 from datetime import datetime
+import sys
+
+file_to_parse = 'test.csv'
+if len(sys.argv) > 1:
+    file_to_parse = sys.argv[1]
+    print("Parsing: " + file_to_parse)
+else:
+    print("No file argument provided, falling back to \"test.csv\"")
 
 x = []
 y = []
 
-with open('test.csv', 'r') as csvfile:
+with open(file_to_parse, 'r') as csvfile:
     plots = csv.reader(csvfile, delimiter='	')
 
     # Skip header
