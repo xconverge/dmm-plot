@@ -7,6 +7,11 @@ from pprint import pprint
 import json
 import getopt
 from datetime import datetime
+import mqtt as m
+
+use_mqtt = True
+if use_mqtt:
+    client = m.connect()
 
 
 def store_message(message, elapsed_time):
@@ -22,6 +27,10 @@ def store_message(message, elapsed_time):
         f.close()
 
 
+def send_message(client, message):
+    m.write(client, message.value)
+
+
 # huge fucking mess
 # TODO: split into smaller functions
 def handle_message(message):
@@ -33,6 +42,9 @@ def handle_message(message):
     elapsed_time = round(packet_time - start_time, 4)
 
     store_message(message, elapsed_time)
+
+    if use_mqtt:
+        send_message(client, message)
 
     # threshold handling
     # necessary to prevent UnboundLocalError

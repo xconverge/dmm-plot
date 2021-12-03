@@ -28,9 +28,9 @@ plt.plot(x, y, color='black', linestyle='solid',
          label="Voltage")
 
 # Major ticks every half year, minor ticks every month,
-# plt.gca().get_xaxis().set_major_locator(mdates.HourLocator())
-plt.gca().get_xaxis().set_major_locator(mdates.MinuteLocator())
-# plt.gca().get_xaxis().set_minor_locator(mdates.SecondLocator())
+plt.gca().get_xaxis().set_major_locator(mdates.HourLocator())
+# plt.gca().get_xaxis().set_major_locator(mdates.MinuteLocator())
+plt.gca().get_xaxis().set_minor_locator(mdates.MinuteLocator())
 plt.grid(True)
 
 plt.subplots_adjust(bottom=0.2)
