@@ -15,4 +15,3 @@ def write(client, value):
     topic = "dmm/value"
     ret = client.publish(topic, value)
     return ret
-
