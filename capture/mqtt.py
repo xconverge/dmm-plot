@@ -5,7 +5,7 @@ import time
 def on_connect(client, userdata, flags, rc):
     print("MQTT Connected with result code "+str(rc))
 
-def on_disconnect(client, userdata, flags, rc):
+def on_disconnect(client, userdata, rc):
     print("MQTT disconnected with result code "+str(rc))
 
 def connect():
